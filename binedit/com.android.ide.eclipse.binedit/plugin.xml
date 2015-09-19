@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+  <extension point="org.eclipse.core.contenttype.contentTypes">  
+    <content-type id="com.android.ide.eclipse.adt.binaryXml" name="Android Binary XML"
+        priority="high"             
+        file-extensions="xml">        
+        <describer
+            class="com.android.ide.eclipse.adt.internal.editors.binaryxml.BinaryXMLDescriber">
+        </describer>
+    </content-type>
+  </extension>
+  <extension point="org.eclipse.core.filebuffers.documentCreation"
+    id="binaryXmlfactories"
+    name="Binary XML Document Factory Extension">
+    <factory
+        contentTypeId="com.android.ide.eclipse.adt.binaryXml"
+        class="org.eclipse.wst.sse.core.internal.filebuffers.BasicStructuredDocumentFactory" />
+  </extension>
+  
+</plugin>

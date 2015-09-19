@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+
+  <extension 
+  		id="com.android.ide.eclipse.api.analysis.compatibility.problem"
+  		point="org.eclipse.core.resources.markers"
+  		name="Android API compatibility Problem">
+	<super type="org.eclipse.core.resources.problemmarker"/>
+	<super type="org.eclipse.core.resources.textmarker"/>
+	<persistent value="true"/>
+  </extension>
+
+  <extension
+      id="com.android.ide.eclipse.api.analysis"
+      name="Android API Analysis"
+      point="org.eclipse.jdt.core.compilationParticipant">
+   <compilationParticipant
+         class="com.android.ide.eclipse.api.analysis.compiler.ApiAnalysisCompilationParticipant"
+         createsProblems="true"
+         id="com.android.ide.eclipse.api.analysis"
+         requiredSourceLevel="1.5">
+      <managedMarker markerType="com.android.ide.eclipse.api.analysis.compatibility.problem"/>
+   </compilationParticipant>
+ </extension>
+
+ <extension
+         point="org.eclipse.ui.propertyPages">
+      <page
+            class="com.android.ide.eclipse.api.analysis.properties.ApiAnalysisPropertyPage"
+            id="com.android.ide.eclipse.api.analysis.properties.ApiAnalysisPropertyPage"
+            name="Api Analysis"
+            nameFilter="*"
+            category="com.android.ide.eclipse.adt.project.properties.AndroidPropertyPage">
+         <enabledWhen>
+               <adapt type="org.eclipse.core.resources.IProject">
+		          <test property="org.eclipse.core.resources.projectNature" 
+		          	value="com.android.ide.eclipse.adt.AndroidNature"/>
+		     </adapt>  
+         </enabledWhen>
+      </page>
+   </extension>
+   
+   <extension point="org.eclipse.core.runtime.preferences">
+		<initializer class="com.android.ide.eclipse.api.analysis.properties.ApiAnalysisPreferencesInitializer"/>
+	</extension>
+</plugin>

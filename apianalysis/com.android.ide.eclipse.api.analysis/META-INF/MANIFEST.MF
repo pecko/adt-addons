@@ -1,0 +1,17 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Android API Analysis
+Bundle-SymbolicName: com.android.ide.eclipse.api.analysis;singleton:=true
+Bundle-Version: 1.0.6.qualifier
+Bundle-Activator: com.android.ide.eclipse.api.analysis.Activator
+Bundle-Vendor: The Android Open Source Project
+Require-Bundle: org.eclipse.ui;bundle-version="3.6.2",
+ org.eclipse.core.runtime;bundle-version="3.6.0",
+ org.eclipse.jdt.core;bundle-version="3.6.1",
+ com.android.ide.eclipse.adt;bundle-version="[11.0.0,17.0.0)",
+ org.eclipse.core.resources;bundle-version="3.6.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ActivationPolicy: lazy
+Bundle-ClassPath: .,
+ lib/sdklib.jar,
+ lib/common.jar
